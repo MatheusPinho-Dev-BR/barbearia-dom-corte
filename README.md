@@ -24,9 +24,12 @@ Depois acesse http://127.0.0.1:8765.
 
 ## Publicar atualização
 
+O deploy é automático: todo push na branch `main` publica em ~15 segundos.
+
 ```powershell
 git add .
 git commit -m "Descrição da mudança"
 git push
-wrangler deploy
 ```
+
+O Worker `barbearia-dom-corte` está conectado ao repositório no Cloudflare (Builds).
