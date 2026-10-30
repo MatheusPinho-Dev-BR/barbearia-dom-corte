@@ -17,3 +17,6 @@ desktop.ini
 .vscode/
 .idea/
 *.log
+
+.dev.vars*
+!.dev.vars.example
