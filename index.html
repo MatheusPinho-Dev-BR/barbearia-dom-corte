@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- Tag viewport: deixa o site certinho no celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO básico -->
+  <title>Barbearia Dom Corte | Estilo e tradição em cada corte</title>
+  <meta name="description" content="Barbearia Dom Corte em São Paulo. Corte de cabelo, barba, sobrancelha e acabamento com hora marcada. Agende seu horário pelo WhatsApp.">
+  <meta name="theme-color" content="#121212">
+
+  <!-- Fontes do Google: Bebas Neue (títulos) e Poppins (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Ícones do Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= TOPO FIXO ================= -->
+  <header class="topo" id="topo">
+    <div class="container topo-linha">
+      <a href="#inicio" class="logo">
+        <i class="fa-solid fa-scissors"></i>
+        <!-- TROQUE AQUI O NOME DA BARBEARIA -->
+        <span>Dom Corte</span>
+      </a>
+
+      <!-- Botão hambúrguer: só aparece no celular -->
+      <button class="botao-menu" id="botaoMenu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menuPrincipal">
+        <i class="fa-solid fa-bars" id="iconeMenu"></i>
+      </button>
+
+      <nav class="menu" id="menuPrincipal">
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#agendamento">Agendamento</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= INÍCIO (HERO) ================= -->
+  <section class="hero" id="inicio">
+    <div class="hero-fundo"></div>
+    <div class="container hero-conteudo">
+      <p class="hero-etiqueta">Desde 2010</p>
+      <h1>Dom Corte</h1>
+      <p class="hero-slogan">Estilo e tradição em cada corte</p>
+      <a href="#agendamento" class="botao botao-grande">Agendar horário</a>
+
+      <ul class="hero-info">
+        <li><i class="fa-regular fa-clock"></i> Seg a sex, 9h às 19h</li>
+        <li><i class="fa-solid fa-location-dot"></i> Centro, São Paulo</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= SERVIÇOS ================= -->
+  <section class="secao" id="servicos">
+    <div class="container">
+      <h2 class="titulo-secao">Serviços e preços</h2>
+      <p class="subtitulo-secao">Escolha o seu e agende em segundos.</p>
+
+      <!-- Os cartões são criados pelo script.js a partir da lista de serviços -->
+      <div class="grade-servicos" id="listaServicos"></div>
+    </div>
+  </section>
+
+  <!-- ================= AGENDAMENTO ================= -->
+  <section class="secao secao-escura" id="agendamento">
+    <div class="container">
+      <h2 class="titulo-secao">Agendamento</h2>
+      <p class="subtitulo-secao">Preencha os dados e confirme pelo WhatsApp.</p>
+
+      <div class="caixa-formulario">
+        <!-- O formulário não envia para nenhum servidor: o script abre o WhatsApp -->
+        <form id="formulario" novalidate>
+
+          <div class="campo">
+            <label for="nome">Nome do cliente</label>
+            <input type="text" id="nome" name="nome" placeholder="Como podemos te chamar?" autocomplete="name">
+            <small class="erro" id="erroNome"></small>
+          </div>
+
+          <div class="campo">
+            <label for="telefone">Telefone (com DDD)</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(11) 91234-5678" autocomplete="tel">
+            <small class="erro" id="erroTelefone"></small>
+          </div>
+
+          <div class="campo">
+            <label for="servico">Serviço</label>
+            <!-- As opções são preenchidas pelo script.js -->
+            <select id="servico" name="servico">
+              <option value="">Carregando serviços...</option>
+            </select>
+            <small class="erro" id="erroServico"></small>
+          </div>
+
+          <div class="linha-campos">
+            <div class="campo">
+              <label for="data">Data</label>
+              <input type="date" id="data" name="data">
+              <small class="erro" id="erroData"></small>
+            </div>
+
+            <div class="campo">
+              <label for="horario">Horário</label>
+              <select id="horario" name="horario">
+                <option value="">Escolha a data primeiro</option>
+              </select>
+              <small class="erro" id="erroHorario"></small>
+            </div>
+          </div>
+
+          <button type="submit" class="botao botao-cheio botao-largo">
+            <i class="fa-brands fa-whatsapp"></i> Confirmar pelo WhatsApp
+          </button>
+
+          <!-- Mensagem de sucesso ou erro geral -->
+          <p class="aviso" id="aviso" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTATO ================= -->
+  <section class="secao" id="contato">
+    <div class="container">
+      <h2 class="titulo-secao">Contato e localização</h2>
+      <p class="subtitulo-secao">Venha tomar um café e sair no estilo.</p>
+
+      <div class="grade-contato">
+        <div class="info-contato">
+          <div class="item-info">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <h3>Endereço</h3>
+              <!-- TROQUE AQUI O ENDEREÇO COMPLETO -->
+              <p>Rua das Palmeiras, 123 - Centro<br>São Paulo - SP, 01000-000</p>
+            </div>
+          </div>
+
+          <div class="item-info">
+            <i class="fa-regular fa-clock"></i>
+            <div>
+              <h3>Horário de funcionamento</h3>
+              <!-- TROQUE AQUI OS HORÁRIOS -->
+              <p>Segunda a sexta: 9h às 19h<br>Sábado: 9h às 17h<br>Domingo: fechado</p>
+            </div>
+          </div>
+
+          <div class="item-info">
+            <i class="fa-solid fa-phone"></i>
+            <div>
+              <h3>WhatsApp</h3>
+              <p>(11) 91234-5678</p>
+            </div>
+          </div>
+
+          <div class="botoes-contato">
+            <!-- TROQUE O NÚMERO NO LINK E NO script.js -->
+            <a href="https://wa.me/5511912345678" target="_blank" rel="noopener" class="botao botao-whats">
+              <i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp
+            </a>
+            <!-- TROQUE AQUI O LINK DO INSTAGRAM -->
+            <a href="https://instagram.com/barbeariadomcorte" target="_blank" rel="noopener" class="botao botao-instagram">
+              <i class="fa-brands fa-instagram"></i> Siga no Instagram
+            </a>
+          </div>
+        </div>
+
+        <!-- Mapa do Google Maps. Troque o endereço dentro do link "q=" -->
+        <div class="mapa">
+          <iframe
+            src="https://www.google.com/maps?q=Rua%20das%20Palmeiras%20123%20Centro%20Sao%20Paulo&output=embed"
+            title="Mapa com a localização da Barbearia Dom Corte"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RODAPÉ ================= -->
+  <footer class="rodape">
+    <div class="container rodape-linha">
+      <p>&copy; <span id="anoAtual">2026</span> Barbearia Dom Corte - Todos os direitos reservados.</p>
+      <a href="https://instagram.com/barbeariadomcorte" target="_blank" rel="noopener" aria-label="Instagram da Barbearia Dom Corte">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- ================= BOTÃO FLUTUANTE DO WHATSAPP ================= -->
+  <a href="https://wa.me/5511912345678" target="_blank" rel="noopener" class="whats-flutuante" aria-label="Falar no WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# Dependencias (nao usadas neste projeto, mas evitam commit acidental)
+node_modules/
+
+# Cloudflare / Wrangler
+.wrangler/
+.dev.vars
+
+# Variaveis de ambiente e segredos (NUNCA commitar)
+.env
+.env.*
+!.env.example
+
+# Sistema / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.log
